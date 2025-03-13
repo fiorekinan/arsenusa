@@ -1,0 +1,232 @@
+@import url('https://fonts.cdnfonts.com/css/gloryunited');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap');
+
+
+* {
+   text-decoration: none;
+   padding: 0;
+   margin: 0;
+   scroll-behavior: smooth;
+   box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--primary-color);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding-top:15vh;
+  }
+  
+  h1, h2, h3 {
+    font-family: 'GloryUnited', sans-serif;
+  }
+ 
+ 
+ :root {
+    --primary-color: #D0893C;
+    --Seccondary-color: #175676;   
+    --bg-cream: #F2E2D1;
+ }
+ 
+ h1 {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 70px;
+    color: #fff;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.puzzle-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.puzzle-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#puzzle_reference {
+    width: 150px;
+    height: auto;
+    padding-bottom: 300px;
+    transform: translateX(15%);
+    
+}
+
+#puzzle_container {
+    position: relative;
+    width: 450px;
+    height: 450px;
+    background-color: #1F5673;
+    border-radius: 12px;
+    border: 25px solid #15425A;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    margin: 50px;
+    transform: translateX(18%);
+}
+
+.puzzle_block {
+    width: calc(100% / 3);
+    height: calc(100% / 3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    position: absolute;
+}
+
+.puzzle_block:hover {
+    transform: scale(1.05);
+}
+
+.puzzle_block img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    user-select: none;
+}
+
+.game-button {
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: var(--Seccondary-color);
+    color: white;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    font-size: 20px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border: none;
+    transition: all 0.4s ease-in-out;
+    box-shadow: 0 0 10px rgba(114, 168, 234, 0.3);
+ }
+ 
+ .game-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(114, 168, 234, 0.3), transparent);
+    transition: all 0.4s ease-in-out;
+ }
+ 
+ .game-button:hover {
+    box-shadow: 0 0 15px rgba(4, 44, 224, 0.954)3, 0 0 25px rgba(0, 115, 255, 0.712);
+ }
+ 
+ .game-button:hover::before {
+    left: 100%;
+    transition: all 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.puzzle_block.new {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@media (max-width: 992px) {
+    .puzzle-container {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    #puzzle_reference {
+        width: 320px;
+        transform: none;
+        padding-bottom: 10px;
+    }
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 3rem;
+    }
+    #puzzle_container {
+        transform: none;
+        width: 500px;
+        height: 500px;
+        border-width: 15px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .puzzle-container {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    #puzzle_reference {
+        width: 120px;
+        transform: none;
+        padding-bottom: 10px;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    #puzzle_container {
+        transform: none;
+        width: 300px;
+        height: 300px;
+        border-width: 15px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    #puzzle_container {
+        border: 3px solid #15425A;
+        padding: 5px;
+    }
+    h1 {
+        font-size: 2.3rem;
+    }
+    #puzzle_reference {
+        width: 150px;
+        padding: 0;
+    }
+    .puzzle_block {
+        margin: 3px;
+    }
+    .game-button {
+        font-size: 16px;
+        padding: 8px 20px;
+    }
+}
+
+
+@media (max-width: 360) {
+    h1 {
+        font-size: 2.3rem;
+    }
+    #puzzle_container {
+        width: 250px;
+        height: 250px;
+        border-width: 10px;
+        padding: 0;
+    }
+    #puzzle_reference {
+        width: 150px;
+        padding: 0;
+    }
+    .game-button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
